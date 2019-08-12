@@ -28,19 +28,19 @@ public class FileParsing {
             choice =input.nextInt();
             switch (choice){
                 case 1: {
-                    System.out.println("Enter the relative path for the file:");
+                    System.out.print("Enter the relative path for the file:");
                     fileName=input.next();
                     JsonFileParserFactory factory=new JsonFileParserFactory();
                     factory.parser(fileName);
                     System.out.println("Done!!!");
                     
-                }
+                }break;
                 case 2:{
                     
-                }
+                }break;
                 case 3:{
                     System.exit(0);
-                }
+                }break;
                 
             }
                     
