@@ -46,7 +46,10 @@ public class JsonFileParser  extends FileParser{
         Collection values=jsonObject.values();
         // iterate through json values 
         Iterator iterValues=values.iterator();
-        
+        // get the json string  form the main keys
+        String currentKey=(String)iterKeys.next();
+        jsonString+="Type: "+currentKey.substring(0,1).toUpperCase()+currentKey.substring(1).toLowerCase();
+        jsonString+="\n-----------------------------------\n";
         return jsonString;
         
     }
