@@ -10,6 +10,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Map;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -48,11 +50,36 @@ public class JsonFileParser  extends FileParser{
         String currentKey=(String)iterKeys.next();
         jsonString+="Type: "+currentKey.substring(0,1).toUpperCase()+currentKey.substring(1).toLowerCase();
         jsonString+="\n-----------------------------------\n";
+        jsonString+= iterateSubJsonObject(iterValues.next());
         return jsonString;
         
     }
-    public String iterateSubJsonObject(Object jsonValue) {
+    public String iterateSubJsonObject(Object subJsonObject) {
         String jsonString="";
+        if(subJsonObject instanceof  JSONArray){
+            // check if there is json array to handle it 
+            Iterator iterJsonArray=((JSONArray) subJsonObject).iterator();
+            while (iterJsonArray.hasNext()) {
+                // get the string from json array recursivly
+               jsonString+=(String) (iterateSubJsonObject((Object)iterJsonArray.next()));
+                
+            }
+        }
+        else {
+            // get the json string from  sub json object as keys and values
+            Iterator iterJsonObject=((JSONObject)subJsonObject).entrySet().iterator();
+            while (iterJsonObject.hasNext()) {
+                Map.Entry currentJsonObject=(Map.Entry)iterJsonObject.next();
+                // get the current key
+                String currentKey=(String)currentJsonObject.getKey();
+                // get the currnt value
+                String currentValue=(String)currentJsonObject.getValue();   
+                // format the  returned json string 
+                jsonString+=currentKey.substring(0,1).toUpperCase()+currentKey.substring(1).toLowerCase()+":";
+                jsonString+=currentValue.substring(0,1).toUpperCase()+currentValue.substring(1).toLowerCase()+"\n";
+
+            }
+        }
         return  jsonString;
         
     }
