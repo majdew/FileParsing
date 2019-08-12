@@ -10,6 +10,6 @@ package fileparsing;
  * @author majd1
  */
 public interface FileParsingFactory {
-    public FileParser fileParserFactory(String fileName);
+    public void fileParserFactory(String fileName);
     
 }

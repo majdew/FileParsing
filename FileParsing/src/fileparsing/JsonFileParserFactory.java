@@ -12,7 +12,9 @@ package fileparsing;
 public class JsonFileParserFactory implements  FileParsingFactory{
 
     @Override
-    public FileParser fileParserFactory(String fileName) {
-        
+    public void fileParserFactory(String fileName) {
+        JsonFileParser jsonFileParser=new JsonFileParser();
+        jsonFileParser.parseFile(fileName);
 
+}
 }
