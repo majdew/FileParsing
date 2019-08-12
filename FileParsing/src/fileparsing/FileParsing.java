@@ -6,6 +6,7 @@
 package fileparsing;
 
 import fileparsing.Factory.JsonFileParserFactory;
+import fileparsing.Factory.XmlFileParserFactory;
 import java.util.Scanner;
 
 /**
@@ -36,6 +37,11 @@ public class FileParsing {
                     
                 }break;
                 case 2:{
+                    System.out.print("Enter the relative path for the file:");
+                    fileName=input.next();
+                    XmlFileParserFactory factory=new XmlFileParserFactory();
+                    factory.parser(fileName);
+                    System.out.println("Done!!!");
                     
                 }break;
                 case 3:{
