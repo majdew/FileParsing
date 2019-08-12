@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fileparsing;
+package fileparsing.BasicClasses;
 
 /**
  *
  * @author majd1
  */
-public interface FileParsingFactory {
-    public void parser(String fileName);
+public abstract class FileParser {
+    public abstract void parseFile(String FileName);
     
 }
