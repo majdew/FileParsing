@@ -9,6 +9,12 @@ package fileparsing;
  *
  * @author majd1
  */
-public class JsonFileParser {
+public class JsonFileParser  extends FileParser{
+
+    @Override
+    public void parseFile(String FileName) {
+       
+    }
+    
     
 }
