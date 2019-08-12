@@ -5,6 +5,8 @@
  */
 package fileparsing;
 
+import java.util.Scanner;
+
 /**
  *
  * @author majd1
@@ -15,7 +17,40 @@ public class FileParsing {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner input=new  Scanner(System.in);
+        String menu="Welcome to \"File Parse\"\n-----------------------\n  1. Parse json file\n  2. Parse xml file\n  3. Exit\n----------------------- ";
+        int choice;
+        String fileName="";
+        do{
+            System.out.println(menu);
+            System.out.println("Enter your Choice: ");
+            choice =input.nextInt();
+            switch (choice){
+                case 1: {
+                    System.out.println("Enter the relative path for the file:");
+                    fileName=input.next();
+                    JsonFileParserFactory factory=new JsonFileParserFactory();
+                    factory.parser(fileName);
+                    System.out.println("Done!!!");
+                    
+                }
+                case 2:{
+                    
+                }
+                case 3:{
+                    System.exit(0);
+                }
+                
+            }
+                    
+            
+        }
+        while(choice!=4);
+        
+        
+        
+         
+        
     }
     
 }
