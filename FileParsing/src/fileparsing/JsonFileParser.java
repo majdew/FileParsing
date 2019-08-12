@@ -5,7 +5,12 @@
  */
 package fileparsing;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -15,7 +20,18 @@ public class JsonFileParser  extends FileParser{
 
     @Override
     public void parseFile(String FileName) {
+        // declare a json file parser
         JSONParser jsonParsor= new JSONParser();
+        try {
+            // read the content of json file and parse it
+            Object jsonFileContent= jsonParsor.parse(new FileReader (FileName)); 
+            JSONObject jsonObject= (JSONObject) jsonFileContent;
+            
+        } 
+        catch (ParseException ex) {  ex.printStackTrace(); }
+        catch (FileNotFoundException ex) {ex.printStackTrace(); }
+        catch (IOException ex) { ex.printStackTrace();}
+    
     }
     
     
