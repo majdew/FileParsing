@@ -8,6 +8,8 @@ package fileparsing;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Iterator;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -36,7 +38,17 @@ public class JsonFileParser  extends FileParser{
     
     public  String iterateJsonObject(JSONObject jsonObject){
         String jsonString="";
+        // get the number of main keys 
+        int numberOfMainKeys=jsonObject.size();
+        // iterate through the main keys 
+        Iterator iterKeys=jsonObject.keySet().iterator();
+        // get  values from the json object
+        Collection values=jsonObject.values();
+        // iterate through json values 
+        Iterator iterValues=values.iterator();
+        
         return jsonString;
+        
     }
     
     
