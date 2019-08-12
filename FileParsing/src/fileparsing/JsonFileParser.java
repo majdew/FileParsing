@@ -8,6 +8,7 @@ package fileparsing;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
@@ -30,6 +31,18 @@ public class JsonFileParser  extends FileParser{
             // read the content of json file and parse it
             Object jsonFileContent= jsonParsor.parse(new FileReader (FileName)); 
             JSONObject jsonObject= (JSONObject) jsonFileContent;
+            
+            //  get json string and write it on a file
+            String jsonString=iterateJsonObject(jsonObject);
+            PrintWriter writer =new  PrintWriter("result.txt");
+            writer.println("====================================");
+            // transform the json string into array split by end line
+            String[] jsonStringArray=jsonString.split("\n");
+            for(String string : jsonStringArray){
+                // append the content of json string on the file with new line
+                writer.append((string)+ System.getProperty( "line.separator" ));
+            }
+            writer.close();
             
         } 
         catch (ParseException ex) {  ex.printStackTrace(); }
