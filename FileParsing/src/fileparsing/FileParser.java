@@ -10,5 +10,6 @@ package fileparsing;
  * @author majd1
  */
 public abstract class FileParser {
+    public abstract void parseFile(String FileName);
     
 }
