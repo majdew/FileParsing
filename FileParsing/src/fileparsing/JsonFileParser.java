@@ -38,8 +38,6 @@ public class JsonFileParser  extends FileParser{
     
     public  String iterateJsonObject(JSONObject jsonObject){
         String jsonString="";
-        // get the number of main keys 
-        int numberOfMainKeys=jsonObject.size();
         // iterate through the main keys 
         Iterator iterKeys=jsonObject.keySet().iterator();
         // get  values from the json object
@@ -53,6 +51,10 @@ public class JsonFileParser  extends FileParser{
         return jsonString;
         
     }
-    
+    public String iterateSubJsonObject(Object jsonValue) {
+        String jsonString="";
+        return  jsonString;
+        
+    }
     
 }
