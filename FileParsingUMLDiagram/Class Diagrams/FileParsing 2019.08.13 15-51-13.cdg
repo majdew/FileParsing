@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="FileParsing">
+  <ClassDiagramComponents>
+    <Class name="FileParser" package="fileparsing.BasicClasses" visibility="public" isAbstract="true" xPosition="207.0" yPosition="75.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="parseFile" returnType="void" visibility="public" isAbstract="true">
+          <Argument type="String" name="FileName"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="JsonFileParser" package="fileparsing.BasicClasses" visibility="public" xPosition="42.0" yPosition="388.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="parseFile" returnType="void" visibility="public">
+          <Argument type="String" name="FileName"/>
+        </Method>
+        <Method name="iterateJsonObject" returnType="String" visibility="private">
+          <Argument type="JSONObject" name="jsonObject"/>
+        </Method>
+        <Method name="iterateSubJsonObject" returnType="String" visibility="private">
+          <Argument type="Object" name="subJsonObject"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="XmlFileParser" package="fileparsing.BasicClasses" visibility="public" xPosition="369.0" yPosition="388.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="parseFile" returnType="void" visibility="public">
+          <Argument type="String" name="FileName"/>
+        </Method>
+        <Method name="printChildNodes" returnType="String" visibility="private">
+          <Argument type="NodeList" name="nodeList"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="JsonFileParserFactory" package="fileparsing.Factory" visibility="public" xPosition="660.0" yPosition="407.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="parser" returnType="void" visibility="public">
+          <Argument type="String" name="fileName"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="XmlFileParserFactory" package="fileparsing.Factory" visibility="public" xPosition="927.0" yPosition="398.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="parser" returnType="void" visibility="public">
+          <Argument type="String" name="fileName"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="FileParsing" package="fileparsing" visibility="public" xPosition="498.0" yPosition="50.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="FileParsingFactory" package="fileparsing.Factory" visibility="public" xPosition="762.0" yPosition="75.0">
+      <Methods>
+        <Method name="parser" returnType="void" visibility="public">
+          <Argument type="String" name="fileName"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="fileparsing.BasicClasses.XmlFileParser" target="fileparsing.BasicClasses.FileParser"/>
+    <IsRelation name="is" source="fileparsing.BasicClasses.JsonFileParser" target="fileparsing.BasicClasses.FileParser"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="fileparsing.Factory.JsonFileParserFactory" target="fileparsing.Factory.FileParsingFactory"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="fileparsing.Factory.XmlFileParserFactory" target="fileparsing.Factory.FileParsingFactory"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
