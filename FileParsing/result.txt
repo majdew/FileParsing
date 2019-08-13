@@ -1,0 +1,7 @@
+====================================
+Type: Note
+-----------------------------------
+Heading:Reminder
+From:Smith
+To:John
+Body:Don't forget me this weekend
