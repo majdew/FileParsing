@@ -65,7 +65,7 @@ public class XmlFileParser extends FileParser{
     }
     
     
-    private static String printChildNodes (NodeList nodeList){
+    private  String printChildNodes (NodeList nodeList){
        String xmlString="";
        for(int i=0;i<nodeList.getLength();i++){
             Node node = nodeList.item(i);

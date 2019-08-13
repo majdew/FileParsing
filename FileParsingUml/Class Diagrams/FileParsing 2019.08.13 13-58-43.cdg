@@ -33,7 +33,7 @@
         <Method name="parseFile" returnType="void" visibility="public">
           <Argument type="String" name="FileName"/>
         </Method>
-        <Method name="printChildNodes" returnType="String" visibility="private" isStatic="true">
+        <Method name="printChildNodes" returnType="String" visibility="private">
           <Argument type="NodeList" name="nodeList"/>
         </Method>
       </Methods>

@@ -51,7 +51,7 @@ public class JsonFileParser  extends FileParser{
     
     }
     
-    public  String iterateJsonObject(JSONObject jsonObject){
+    private String iterateJsonObject(JSONObject jsonObject){
         String jsonString="";
         // iterate through the main keys 
         Iterator iterKeys=jsonObject.keySet().iterator();
@@ -67,7 +67,7 @@ public class JsonFileParser  extends FileParser{
         return jsonString;
         
     }
-    public String iterateSubJsonObject(Object subJsonObject) {
+    private String iterateSubJsonObject(Object subJsonObject) {
         String jsonString="";
         if(subJsonObject instanceof  JSONArray){
             // check if there is json array to handle it 
