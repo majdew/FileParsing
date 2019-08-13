@@ -9,6 +9,11 @@ package fileparsing.BasicClasses;
  *
  * @author majd1
  */
-public class XmlFileParser {
+public class XmlFileParser extends FileParser{
+
+    @Override
+    public void parseFile(String FileName) {
+        
+    }
     
 }
