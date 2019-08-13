@@ -7,6 +7,7 @@ package fileparsing.BasicClasses;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -32,6 +33,29 @@ public class XmlFileParser extends FileParser{
         
         // get the main node name
         String rootName= document.getDocumentElement().getNodeName();
+        
+        // print xml string on the file
+        if(document.hasChildNodes()){
+            // call  print method to print childNodes
+            String xmlString=printChildNodes(document.getChildNodes());
+            // split the string to get the the right format
+            String[] xmlStringArray=xmlString.split("\n");
+            
+            // write the xml string on the file
+            PrintWriter writer=new PrintWriter("reuslt.txt");
+            
+            // special sml string format
+            writer.write("========================================"+System.lineSeparator());
+            writer.write("Type:"+rootName.substring(0,1).toUpperCase()+rootName.substring(1)+System.lineSeparator());
+            writer.write("----------------------------");
+            writer.write(System.lineSeparator());
+            for(String string: xmlStringArray){
+                writer.write(string+System.lineSeparator());
+            }
+               writer.close();
+        }
+        
+        
         } 
         catch(ParserConfigurationException ex){ex.getMessage();}
         catch (IOException ex){ ex.getMessage();} 
