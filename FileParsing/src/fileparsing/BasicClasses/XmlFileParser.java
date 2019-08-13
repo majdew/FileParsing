@@ -5,8 +5,15 @@
  */
 package fileparsing.BasicClasses;
 
+import java.io.File;
+import java.io.IOException;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 /**
  *
@@ -16,6 +23,17 @@ public class XmlFileParser extends FileParser{
 
     @Override
     public void parseFile(String FileName) {
+        try {
+        // Instantiate XML file
+	File xmlFile = new File(FileName);
+        DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder=factory.newDocumentBuilder();
+        Document document= builder.parse(xmlFile);
+        } 
+        catch(ParserConfigurationException ex){ex.getMessage();}
+        catch (IOException ex){ ex.getMessage();} 
+        catch (SAXException ex) { ex.getMessage();}
+        catch(Exception ex){ ex.getMessage();}
         
     }
     
