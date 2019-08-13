@@ -29,6 +29,9 @@ public class XmlFileParser extends FileParser{
         DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
         DocumentBuilder builder=factory.newDocumentBuilder();
         Document document= builder.parse(xmlFile);
+        
+        // get the main node name
+        String rootName= document.getDocumentElement().getNodeName();
         } 
         catch(ParserConfigurationException ex){ex.getMessage();}
         catch (IOException ex){ ex.getMessage();} 
